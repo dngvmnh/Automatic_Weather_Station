@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-wrap">
+    <header>
+      <div class="big-container"> 
+      <div class="container">
+            <div class="iframe-container">
+              <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2588727/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+          </div>
+        </div>
+          <div class="container">
+                <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2588727/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+              </div>
+      </div>
+
+    </div>
+      <main>
+      <section class="location">
+        <div class="city">Ho Chi Minh, Vietnam</div>
+        <div class="date">UPDATE DATE</div>
+      </section>
+      <div class="current">
+        <div class="temp">TEMP<span>°C</span></div>
+        <div class="weather">WEATHER</div>
+        <div class="hi-low">HI/LO</div>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
