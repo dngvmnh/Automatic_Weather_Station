@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDate();
     updateWeather();
   
-    setInterval(updateDate, 60000);
+    setInterval(updateDate, 600000);
     
     setInterval(updateWeather, 3600000);
   });
