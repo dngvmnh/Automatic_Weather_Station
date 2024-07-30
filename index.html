@@ -7,9 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="icon" href="assets/Icon.png" type="image/png">
-  <link rel="icon" href="assets/Icon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/Icon.png">
-
 </head>
 <body>
   <div class="app-wrap">
@@ -25,60 +23,102 @@
             <span class="weather-label">Weather:</span>
             <span class="weather-content"></span>
             <span class="weather-description"></span>
-          </div>
-        </div>
-      </main>
-
-      <div class="big-container"> 
-        <div class="container">
-          <div class="container-title">Temperature</div>
-          <div class="iframe-container">
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+            <div class="temp-range">
+              <span class="temp-format"></span>
             </div>
-        </div>
-
-        <div class="container">
-          <div class="iframe-container">
-          <div class="container-title">Humidity</div>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
           </div>
         </div>
+        
+        <section class="air-quality">
+          <div class="aqi-label"></div>
+          <div class="aqi-value"></div>
 
-        <div class="container">
-          <div class="container-title">Ultraviolet Intensity</div>
-          <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
-        </div>
+          <div class="pollutants">
+            <div class="pollutant">
+              <span class="pollutant-label">CO:</span>
+              <span class="pollutant-value co"></span>
+            </div>
+            <div class="pollutant">
+              <span class="pollutant-label">NO:</span>
+              <span class="pollutant-value no"></span>
+            </div>
+            <div class="pollutant">
+              <span class="pollutant-label">NO2:</span>
+              <span class="pollutant-value no2"></span>
+            </div>
+            <div class="pollutant">
+              <span class="pollutant-label">O3:</span>
+              <span class="pollutant-value o3"></span>
+            </div>
+            <div class="pollutant">
+              <span class="pollutant-label">SO2:</span>
+              <span class="pollutant-value so2"></span>
+            </div>
+            <div class="pollutant">
+              <span class="pollutant-label">PM2.5:</span>
+              <span class="pollutant-value pm2_5"></span>
+            </div>
+            <div class="pollutant">
+              <span class="pollutant-label">PM10:</span>
+              <span class="pollutant-value pm10"></span>
+            </div>
+            <div class="pollutant">
+              <span class="pollutant-label">NH3:</span>
+              <span class="pollutant-value nh3"></span>
+            </div>
+          </div>
+        </section>
 
-        <div class="container">
-          <div class="container-title">Luminous Intensity</div>
-          <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
-        </div>
-
-        <div class="container">
-          <div class="container-title">Atmospheric Pressure</div>
-          <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
-        </div>
-
-        <div class="container">
-          <div class="container-title">Altitude</div>
-          <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
-        </div>
-      
-      </div>
+      </main>
     </header>
     
-    <div class="big-container">
-      <div class="footer">
-        <h3>© Automatic Weather Station, built by Vu Minh Dang and Tran Thuc Bao. Open-sourced by Makerlab.</h3>
-        <div class="social-media">
-                <a href="https://github.com/dngvmnh/automatic_weather_station"><img src="assets/AWS.png" class="icon_1" /></a>
-                <a href="https://github.com/makerlabvn"><i class="sm fa-brands fa-github"></i></a>
-                <a href="https://www.facebook.com/makerlabvn/"><i class="sm fa-brands fa-facebook"></i></a>
-                <a href="https://www.makerlab.vn/"><img src="assets/maker_lab_vn.png" class="icon" /></a>
-                </div>         
+    <div class="big-container"> 
+      <div class="container">
+        <div class="container-title">Temperature</div>
+        <div class="iframe-container">
+          <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+        </div>
+      </div>
 
+      <div class="container">
+        <div class="container-title">Humidity</div>
+        <div class="iframe-container">
+          <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+        </div>
+      </div>
 
+      <div class="container">
+        <div class="container-title">Ultraviolet Intensity</div>
+        <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+      </div>
 
+      <div class="container">
+        <div class="container-title">Luminous Intensity</div>
+        <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+      </div>
+
+      <div class="container">
+        <div class="container-title">Atmospheric Pressure</div>
+        <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+      </div>
+
+      <div class="container">
+        <div class="container-title">Altitude</div>
+        <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/6?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+      </div>
+    </div>
+
+    <div class="footer">
+      <h3>© Automatic Weather Station, built by Vu Minh Dang and Tran Thuc Bao. Open-sourced by Makerlab.</h3>
+      <div class="social-media">
+        <a href="https://github.com/dngvmnh/automatic_weather_station"><img src="assets/AWS.png" class="icon_1" /></a>
+        <a href="https://github.com/makerlabvn"><i class="sm fa-brands fa-github"></i></a>
+        <a href="https://www.facebook.com/makerlabvn/"><i class="sm fa-brands fa-facebook"></i></a>
+        <a href="https://www.makerlab.vn/"><img src="assets/maker_lab_vn.png" class="icon" /></a>
+      </div>
+    </div>
+
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

@@ -12,12 +12,10 @@
   margin-bottom: 10px; 
   color: #333; 
   background-color: var(--secondary-background-color);
-
 }
 
 a {
   color: inherit;
-
   text-decoration: none;
 }
 
@@ -41,15 +39,16 @@ a {
   background-color: var(--secondary-background-color);
   top: 1rem;
   padding: 1rem;
-  }
+}
 
-.footer h3{
+.footer h3 {
   text-align: center;
   padding: 2rem;
   font-size: var(--font-size-sm);
   border-radius: 20px;
   color: #fff;
 }
+
 .social-media {
   display: flex;
   flex-direction: row;
@@ -61,7 +60,7 @@ a {
   margin-right: 20px;
 }
 
-.social-media a i{
+.social-media a i {
   color: #fff;
 }
 
@@ -93,7 +92,6 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   gap: 20px;
   border-radius: 1rem;
-  margin-top: 20px;
   padding: 20px;
 }
 
@@ -113,6 +111,7 @@ main {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  border: none;
 }
 
 iframe {
@@ -127,14 +126,12 @@ iframe {
   font-weight: 500;
   margin-bottom: 5px;
   text-shadow: 0px 2px rgba(0, 0, 0, 0.4);
-
 }
 
 .location .date {
   color: #fff;
   font-size: 20px;
   text-shadow: 0px 2px rgba(0, 0, 0, 0.4);
-
 }
 
 .current .temp {
@@ -177,4 +174,78 @@ iframe {
   font-size: 20px;
   font-weight: 500;
   text-shadow: 0px 2px rgba(0, 0, 0, 0.4);
+}
+
+.aqi-section {
+  color: #fff;
+  text-shadow: 0px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+}
+
+.aqi-title {
+  color: #fff;
+  text-shadow: 0px 2px rgba(0, 0, 0, 0.4);
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.aqi-value {
+  color: #fff;
+  text-shadow: 0px 2px rgba(0, 0, 0, 0.6);
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 20px;
+
+}
+
+.pollutant {
+  color: #fff;
+  text-shadow: 0px 2px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  margin-right: 20px;
+
+}
+
+.pollutant span {
+  color: #fff;
+  text-shadow: 0px 2px rgba(0, 0, 0, 0.4);
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+.pollutant .label {
+  color: #fff;
+  text-shadow: 0px 2px rgba(0, 0, 0, 0.4);
+  font-weight: bold;
+
+  
+}
+
+.aqi-value .aqi-number.value-1 {
+  color: green;
+}
+
+.aqi-value .aqi-number.value-2 {
+  color: yellow;
+}
+
+.aqi-value .aqi-number.value-3 {
+  color: orange;
+}
+
+.aqi-value .aqi-number.value-4 {
+  color: red;
+}
+
+.aqi-value .aqi-number.value-5 {
+  color: purple;
 }
