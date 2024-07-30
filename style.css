@@ -4,6 +4,24 @@
   box-sizing: border-box;
 }
 
+a {
+  color: inherit;
+    
+  text-decoration: none;
+}
+
+.icon_1 {
+  width: 28px;
+  height: 28px;
+  vertical-align: sub; 
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: sub; 
+}
+
 .footer {
   display: flex;
   flex-direction: column; 
