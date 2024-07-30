@@ -3,48 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App</title>
+  <title>Untitled Site</title>
   <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untitled Site</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
   <div class="app-wrap">
     <header>
+      <main>
+        <section class="location">
+          <div class="city">Ho Chi Minh City, Vietnam</div>
+          <div class="date">UPDATE DATE</div>
+        </section>
+        <div class="current">
+          <div class="temp">TEMP<span>°C</span></div>
+          <div class="weather">WEATHER</div>
+          <div class="hi-low">HI/LO</div>
+        </div>
+      </main>
+
       <div class="big-container"> 
-      <div class="container">
-            <div class="iframe-container">
-              <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2588727/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+        <div class="container">
+          <div class="iframe-container">
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
           </div>
         </div>
-          <div class="container">
-                <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2588727/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
-              </div>
-      </div>
 
-    </div>
-      <main>
-      <section class="location">
-        <div class="city">Ho Chi Minh, Vietnam</div>
-        <div class="date">UPDATE DATE</div>
-      </section>
-      <div class="current">
-        <div class="temp">TEMP<span>°C</span></div>
-        <div class="weather">WEATHER</div>
-        <div class="hi-low">HI/LO</div>
+        <div class="container">
+          <div class="iframe-container">
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+          </div>
+        </div>
+
+        <div class="container">
+          <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+        </div>
+
+        <div class="container">
+          <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+        </div>
+
+        <div class="container">
+          <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+        </div>
+
+        Elevation here
       </div>
-    </main>
-  </div>
+    </header>
+    
+    <div class="big-container">
+      <div class="footer">
+        <h3>© IoT Weather Station by Vu Minh Dang, Tran Thuc Bao. Open sourced by Makerlab.</h3>
+        <div class="social-media">
+                <a href="mailto:dangvm2007@gmail.com"><i class="fa-solid fa-contact-card">‌</i></a>
+                <a href="https://www.facebook.com/dngvmnh"><i class="sm fa-brands fa-facebook"></i></a>
+                <a href="https://github.com/dngvmnh"><i class="sm fa-brands fa-github"></i></a>
+                <a href="https://sites.google.com/view/dngvmnh/home"><i class="fa-solid fa-user-large">‌</i></a>            
+        </div>         
+
+
+
   <script src="script.js"></script>
 </body>
 </html>
-
-<!-- | Temp | <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
- |
-| --- | --- |
-| Hum | <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
- |
-| UV | <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
- |
-| Lux | <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
- |
-| Pressure | <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
- | -->
