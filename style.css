@@ -90,8 +90,8 @@ main {
 .big-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 20px;
-  border-radius: 1rem;
+  gap: 60px;
+  border-radius: none;
   padding: 20px;
 }
 
