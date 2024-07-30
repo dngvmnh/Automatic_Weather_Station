@@ -17,12 +17,14 @@
       <main>
         <section class="location">
           <div class="city">Ho Chi Minh City, Vietnam</div>
-          <div class="date">UPDATE DATE</div>
+          <div class="date"></div>
         </section>
         <div class="current">
-          <div class="temp">TEMP<span>°C</span></div>
-          <div class="weather">WEATHER</div>
-          <div class="hi-low">HI/LO</div>
+          <div class="temp"></div>
+          <div class="weather-container">
+            <span class="weather-label">Weather:</span> <span class="weather-content">WEATHER</span>
+          </div>
+          
         </div>
       </main>
 
@@ -51,16 +53,20 @@
           <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
         </div>
 
-        Elevation here
+        <div class="container">
+          <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+        </div>
+      
       </div>
     </header>
     
     <div class="big-container">
       <div class="footer">
-        <h3>© Automatic Weather Station, built by <a href="https://github.com/dngvmnh">Vu Minh Dang</a> and <a href="">Tran Thuc Bao</a>. Open-sourced by Makerlab.</h3>
+        <h3>© Automatic Weather Station, built by Vu Minh Dang and Tran Thuc Bao. Open-sourced by Makerlab.</h3>
         <div class="social-media">
                 <a href="https://github.com/dngvmnh/automatic_weather_station"><img src="AWS.png" class="icon_1" /></a>
                 <a href="https://github.com/makerlabvn"><i class="sm fa-brands fa-github"></i></a>
+                <a href="https://www.facebook.com/makerlabvn/"><i class="sm fa-brands fa-facebook"></i></a>
                 <a href="https://www.makerlab.vn/"><img src="maker_lab_vn.png" class="icon" /></a>
                 </div>         
 
