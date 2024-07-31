@@ -82,7 +82,6 @@
             });
             });
         }
-        
     
         updateDate();
         updateWeather();

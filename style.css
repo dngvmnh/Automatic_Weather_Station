@@ -79,7 +79,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.025));
 }
 
 .app-wrap-about {
@@ -310,7 +310,7 @@ iframe {
   align-items: center;
   justify-content: space-between;
   animation: flowDown 1s ease-out;
-  animation-delay: 0.1s; /* Delay to synchronize with the card animation */
+  animation-delay: 0.1s;
 }
 
 .search input{
