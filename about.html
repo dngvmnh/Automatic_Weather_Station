@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatic Weather Station</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" href="assets/Icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/Icon.png">
+</head>
+<body>
+    <div class="app-wrap">  
+  <div class="card">
+    <div class="search">
+      <input type="text" placeholder="Enter city name" spellcheck="false">
+    </div>
+
+    <div class="error">
+      <p>Invalid city name</p>
+    </div>
+
+    <div class="weather">
+      <img src="images/rain.png" class="weather-icon" alt="Weather Icon">
+      <h1 class="temp"></h1>
+      <h2 class="city"></h2>
+      <div class="details">
+        <div class="col">
+          <img src="images/humidity.png" alt="Humidity">
+          <div>
+            <p class="humidity"></p>
+            <p>Humidity</p>
+          </div>
+        </div>
+        <div class="col">
+          <img src="images/wind.png" alt="Wind">
+          <div>
+            <p class="wind"></p>
+            <p>Wind Speed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="down-arrow">
+    <a href="index.html">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+  </div>
+
+  <div class="footer">
+    <h3>© Automatic Weather Station, built by Vu Minh Dang and Tran Thuc Bao, open-sourced by Makerlab.</h3>
+    <div class="social-media">
+      <a href="https://github.com/dngvmnh/automatic_weather_station"><img src="assets/AWS.png" class="icon_1" alt="AWS"></a>
+      <a href="https://github.com/makerlabvn"><i class="sm fa-brands fa-github"></i></a>
+      <a href="https://www.facebook.com/makerlabvn/"><i class="sm fa-brands fa-facebook"></i></a>
+      <a href="https://www.makerlab.vn/"><img src="assets/maker_lab_vn.png" class="icon" alt="Maker Lab VN"></a>
+    </div>
+  </div>
+</div>
+
+  <script>
+    const apikey = "98d48501649a41790e957711ea3b6d24";
+    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+    const searchbox = document.querySelector(".search input");
+    const weatherIcon = document.querySelector(".weather-icon");
+
+    // Function to fetch and display weather data
+    async function checkWeather(city) {
+      const response = await fetch(apiUrl + city + `&appid=${apikey}`);
+      
+      if (response.status == 404) {
+        document.querySelector(".error").style.display = "block";
+        document.querySelector(".weather").style.display = "none";
+      } else {
+        const data = await response.json();
+        document.querySelector(".city").innerHTML = data.name;
+        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+        document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+        document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+        
+        if (data.weather[0].main == "Clouds") {
+          weatherIcon.src = "images/clouds.png";
+        } else if (data.weather[0].main == "Clear") {
+          weatherIcon.src = "images/clear.png";
+        } else if (data.weather[0].main == "Rain") {
+          weatherIcon.src = "images/rain.png";
+        } else if (data.weather[0].main == "Drizzle") {
+          weatherIcon.src = "images/drizzle.png";
+        } else if (data.weather[0].main == "Mist") {
+          weatherIcon.src = "images/mist.png";
+        }
+
+        document.querySelector(".weather").style.display = "block";
+        document.querySelector(".error").style.display = "none";
+      }
+    }
+
+    // Event listener for Enter key press in the search box
+    searchbox.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        checkWeather(searchbox.value);
+      }
+    });
+
+    // Fetch weather for Ho Chi Minh City when the page loads
+    document.addEventListener("DOMContentLoaded", () => {
+      checkWeather("Ho Chi Minh City");
+    });
+  </script>
+</body>
+</html>

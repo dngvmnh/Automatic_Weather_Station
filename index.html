@@ -10,9 +10,13 @@
   <link rel="apple-touch-icon" href="assets/Icon.png">
 </head>
 <body>
+  
   <div class="app-wrap">
+
     <header>
+      
       <main>
+        
         <section class="location">
           <div class="city">Ho Chi Minh City, Vietnam</div>
           <div class="date"></div>
@@ -27,7 +31,47 @@
               <span class="temp-format"></span>
             </div>
           </div>
-        </div>
+          <section class="air-quality">
+            <div class="aqi-label"></div>
+            <div class="aqi-value"></div>
+  
+            <div class="pollutants">
+              <div class="pollutant">
+                <span class="pollutant-label">CO:</span>
+                <span class="pollutant-value co"></span>
+              </div>
+              <div class="pollutant">
+                <span class="pollutant-label">NO:</span>
+                <span class="pollutant-value no"></span>
+              </div>
+              <div class="pollutant">
+                <span class="pollutant-label">NO2:</span>
+                <span class="pollutant-value no2"></span>
+              </div>
+              <div class="pollutant">
+                <span class="pollutant-label">O3:</span>
+                <span class="pollutant-value o3"></span>
+              </div>
+              <div class="pollutant">
+                <span class="pollutant-label">SO2:</span>
+                <span class="pollutant-value so2"></span>
+              </div>
+              <div class="pollutant">
+                <span class="pollutant-label">PM2.5:</span>
+                <span class="pollutant-value pm2_5"></span>
+              </div>
+              <div class="pollutant">
+                <span class="pollutant-label">PM10:</span>
+                <span class="pollutant-value pm10"></span>
+              </div>
+              <div class="pollutant">
+                <span class="pollutant-label">NH3:</span>
+                <span class="pollutant-value nh3"></span>
+              </div>
+            </div>
+            
+          </section>
+        
         
       </main>
     </header>
@@ -64,11 +108,19 @@
 
       <div class="container">
         <div class="container-title">Altitude</div>
+        
       </div>
+      
+    </div>
+    
+    <div class="down-arrow">
+      <a href="about.html">
+        <i class="fas fa-chevron-down"></i>
+      </a>
     </div>
 
     <div class="footer">
-      <h3>© Automatic Weather Station, built by Vu Minh Dang and Tran Thuc Bao. Open-sourced by Makerlab.</h3>
+      <h3>© Automatic Weather Station, built by Vu Minh Dang and Tran Thuc Bao, open-sourced by Makerlab.</h3>
       <div class="social-media">
         <a href="https://github.com/dngvmnh/automatic_weather_station"><img src="assets/AWS.png" class="icon_1" /></a>
         <a href="https://github.com/makerlabvn"><i class="sm fa-brands fa-github"></i></a>
@@ -77,6 +129,7 @@
       </div>
     </div>
   </div>
+</div>
   <script src="script.js"></script>
 </body>
 </html>
