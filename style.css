@@ -101,7 +101,7 @@ main {
 .big-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 60px;
+  gap: 20px;
   border-radius: none;
   margin-top: 100px;
   padding: 20px;
@@ -109,9 +109,8 @@ main {
 
 .container {
   position: relative;
-  width: 450px;
+  width: 445px;
   height: 255px;
-  padding: 0;
   border: none;
   background-color: #f9f9f9;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
