@@ -75,7 +75,14 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05));
+}
+
+.app-wrap-about {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.025));
 }
 
 main {
@@ -99,18 +106,6 @@ main {
   position: relative;
   width: 450px;
   height: 260px;
-  padding: 0;
-  border: none;
-  background-color: #f9f9f9;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 1rem;
-  overflow: hidden;
-}
-
-.OWM-container {
-  position: relative;
-  width: 685px;
-  height: 235px;
   padding: 0;
   border: none;
   background-color: #f9f9f9;
@@ -289,17 +284,7 @@ iframe {
 }
 
 
-*{
-  margin:0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  box-sizing: border-box;
-}
-
-body{
-  background-color: #222;
-}
-.card{
+.card {
   width: 90%;
   max-width: 470px;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
@@ -308,13 +293,18 @@ body{
   border-radius: 20px;
   padding: 40px 35px;
   text-align: center;
+  animation: flowDown 1s ease-out;
 }
-.search{
+
+.search {
   width: 420px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  animation: flowDown 1s ease-out;
+  animation-delay: 0.1s; /* Delay to synchronize with the card animation */
 }
+
 .search input{
   border: 0;
   outline: 0;
@@ -375,4 +365,47 @@ body{
   font-size: 14px;
   margin-top: 10px;
   display: none;
+}
+
+@keyframes flowDown {
+  from {
+    transform: translateY(-100px); 
+    opacity: 0; 
+  }
+  to {
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+.weather h1, .weather h2, .weather .details {
+  animation: flowDown 0.5s ease-out;
+  opacity: 1; 
+}
+
+.weather h1 {
+  animation-delay: 0.1s; 
+}
+
+.weather h2 {
+  animation-delay: 0.2s;
+}
+
+.weather .details {
+  animation-delay: 0.3s;
+}
+
+@keyframes flowUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.flow-up {
+  animation: flowUp 1s ease-out forwards;
 }

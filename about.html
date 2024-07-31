@@ -8,9 +8,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="icon" href="assets/Icon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/Icon.png">
+  <style>
+    .hidden {
+      display: none;
+    }
+
+    .loading {
+      visibility: hidden;
+    }
+
+  </style>
 </head>
-<body>
-    <div class="app-wrap">  
+<body class="loading">
+    <div class="app-wrap-about">
   <div class="card">
     <div class="search">
       <input type="text" placeholder="Enter city name" spellcheck="false">
@@ -42,6 +52,7 @@
       </div>
     </div>
   </div>
+  
 
   <div class="down-arrow">
     <a href="index.html">
@@ -61,12 +72,17 @@
 </div>
 
   <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.body.classList.remove('loading');
+      }, 500); 
+    });
+
     const apikey = "98d48501649a41790e957711ea3b6d24";
     const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
     const searchbox = document.querySelector(".search input");
     const weatherIcon = document.querySelector(".weather-icon");
 
-    // Function to fetch and display weather data
     async function checkWeather(city) {
       const response = await fetch(apiUrl + city + `&appid=${apikey}`);
       
@@ -97,14 +113,12 @@
       }
     }
 
-    // Event listener for Enter key press in the search box
     searchbox.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
         checkWeather(searchbox.value);
       }
     });
 
-    // Fetch weather for Ho Chi Minh City when the page loads
     document.addEventListener("DOMContentLoaded", () => {
       checkWeather("Ho Chi Minh City");
     });

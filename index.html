@@ -11,12 +11,13 @@
 </head>
 <body>
   
-  <div class="app-wrap">
+  <div class="loading-overlay">
+    <div class="loading-spinner"></div>
+  </div>
 
+  <div class="app-wrap">
     <header>
-      
       <main>
-        
         <section class="location">
           <div class="city">Ho Chi Minh City, Vietnam</div>
           <div class="date"></div>
@@ -34,7 +35,6 @@
           <section class="air-quality">
             <div class="aqi-label"></div>
             <div class="aqi-value"></div>
-  
             <div class="pollutants">
               <div class="pollutant">
                 <span class="pollutant-label">CO:</span>
@@ -69,10 +69,8 @@
                 <span class="pollutant-value nh3"></span>
               </div>
             </div>
-            
           </section>
-        
-        
+        </div>
       </main>
     </header>
     
@@ -108,9 +106,7 @@
 
       <div class="container">
         <div class="container-title">Altitude</div>
-        
       </div>
-      
     </div>
     
     <div class="down-arrow">
@@ -129,7 +125,7 @@
       </div>
     </div>
   </div>
-</div>
+
   <script src="script.js"></script>
 </body>
 </html>
