@@ -30,26 +30,86 @@
         <section class="location">
           <div class="city flow-up">Makerlab, HCMC</div>
           <div class="date flow-up"></div>
-          <div id="temperature"></div>    
+          <div id="temperature"></div> 
+          <div class="details">
+            <div class="col">
+              <img src="images/humidity.png">
+              <div>
+                <p id="humidity" class="humidity"></p>
+              </div>
+            </div>
+            
+            <div class="col">
+              <img src="images/UV.png">
+              <div>
+                <p id="UV", class="UV"></p>
+              </div>
+              </div>
+              
+              </div>
+            </div><a href="https://raw.githubusercontent.com/dngvmnh/Automatic_Weather_Station/main/assets/UVI.png" target="_blank" class="aqi-button flow-up ">Refer to Ultraviolet Index Levels</a></div>
+
+            </div>   
           <script>
             const channelID = '2604448';
-            const fieldID = '1';
             const apiKey = 'UQNBZGODZAF499TP';
-            const url = `https://api.thingspeak.com/channels/${channelID}/fields/${fieldID}/last.json?api_key=${apiKey}`;
-            async function getTemperature() {
+            
+            async function getData1() {
+                const url = `https://api.thingspeak.com/channels/${channelID}/fields/1/last.json?api_key=${apiKey}`;
                 try {
                   const response = await fetch(url);
-                const data = await response.json();
-                const temperatureElement = document.getElementById('temperature');
-                temperatureElement.innerText = `${data.field1} °C`;
-                temperatureElement.className = 'temp';
-            } catch (error) {
-                    console.error('Error fetching temperature data:', error);
+                  const data = await response.json();
+                  return data.field1;
+                } catch (error) {
+                  console.error(`Error fetching data from field 1:`, error);
                 }
             }
-            window.onload = getTemperature;
+            async function getData2() {
+                const url = `https://api.thingspeak.com/channels/${channelID}/fields/2/last.json?api_key=${apiKey}`;
+                try {
+                  const response = await fetch(url);
+                  const data = await response.json();
+                  return data.field2;
+                } catch (error) {
+                  console.error(`Error fetching data from field 2:`, error);
+                }
+            }
+            async function getData3() {
+                const url = `https://api.thingspeak.com/channels/${channelID}/fields/3/last.json?api_key=${apiKey}`;
+                try {
+                  const response = await fetch(url);
+                  const data = await response.json();
+                  return data.field3;
+                } catch (error) {
+                  console.error(`Error fetching data from field 3:`, error);
+                }
+            }
+
+            async function updateWeatherData() {
+              const temperatureElement = document.getElementById('temperature');
+              const humidityElement = document.getElementById('humidity');
+              const UVElement = document.getElementById('UV');
+              
+              try {
+                const temperature = await getData1();
+                const humidity = await getData2();
+                const UV = await getData3();
+                
+                temperatureElement.innerText = `${temperature}°C`;
+                temperatureElement.className = 'temp';
+
+                humidityElement.innerText = `${parseFloat(humidity).toFixed(2)}%`;
+                humidityElement.className = 'humidity';
+
+                UVElement.innerText = `${UV}`;
+                UVElement.className = 'UV';
+              } catch (error) {
+                console.error('Error updating weather data:', error);
+              }
+            }
+
+            window.onload = updateWeatherData;
         </script>
-        </div><a href="https://raw.githubusercontent.com/dngvmnh/Automatic_Weather_Station/main/assets/UVI.jpg" target="_blank" class="aqi-button flow-up ">Refer to Ultraviolet Index Levels</a></div>
 
         </section></body>
     <div class="big-container"> 
