@@ -145,9 +145,17 @@ iframe {
   text-shadow: 0px 2px rgba(0, 0, 0, 0.4);
 }
 
+.temp {
+  color: #fff;
+  font-size: 70px;
+  font-weight: 900;
+  margin: 10px 10px;
+  text-shadow: 2px 10px rgba(0, 0, 0, 0.6);
+}
+
 .current .temp {
   color: #fff;
-  font-size: 75px;
+  font-size: 70px;
   font-weight: 900;
   margin: 10px 10px;
   text-shadow: 2px 10px rgba(0, 0, 0, 0.6);
@@ -185,6 +193,7 @@ iframe {
   font-size: 20px;
   font-weight: 500;
   text-shadow: 0px 2px rgba(0, 0, 0, 0.4);
+  margin-top: 50px;
 }
 
 .aqi-section {
@@ -219,8 +228,8 @@ iframe {
   text-shadow: 0px 2px rgba(0, 0, 0, 0.6);
   font-size: 22px;
   font-weight: bold;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  margin-bottom: 25px;
+  margin-top: 50px;
 
 }
 
@@ -318,6 +327,7 @@ iframe {
   justify-content: space-between;
   animation: flowDown 1s ease-out;
   animation-delay: 0.1s;
+  margin-top: 30px;
 }
 
 .search input{
@@ -339,8 +349,8 @@ iframe {
 }
 
 .weather-icon{
-  width: 100px;
-  margin-top: 50px;
+  width: 150px;
+  margin-top: 10px;
 }
 .weather h1{
   color: #fff;
@@ -374,10 +384,11 @@ iframe {
 .col img{
   width: 40px;
   margin-right: 10px;
+  margin-top: 25px;
 }
 .humidity, .wind{
   font-size: 28px;
-  margin-top: -6px;
+  margin-top: 25px;
 }
 .weather{
   display: none;
@@ -385,10 +396,11 @@ iframe {
   
 }
 .error{
-  text-align: left;
+  text-align: center;
   margin-left: 10px;
-  font-size: 14px;
-  margin-top: 10px;
+  font-size: 24px;
+  margin-top: 150px;
+  margin-bottom: 150px;
   display: none;
 }
 
@@ -403,8 +415,13 @@ iframe {
   }
 }
 
+.flow-down {
+  animation: flowUp 0.5s ease-out;
+  opacity: 1; 
+}
+
 .weather h1, .weather h2, .weather .details {
-  animation: flowDown 0.5s ease-out;
+  animation: flowUp 0.5s ease-out;
   opacity: 1; 
 }
 
@@ -423,7 +440,7 @@ iframe {
 
 @keyframes flowUp {
   0% {
-    transform: translateY(100px); 
+    transform: translateY(-100px); 
     opacity: 0;
   }
   100% {

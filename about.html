@@ -19,41 +19,97 @@
 
   </style>
 </head>
-<body class="loading">
-    <div class="app-wrap-about">
-  <div class="card">
-    <div class="search">
-      <input type="text" placeholder="Enter city name" spellcheck="false">
-    </div>
-
-    <div class="error">
-      <p>Invalid city name</p>
-    </div>
-
-    <div class="weather">
-      <img src="images/rain.png" class="weather-icon" alt="Weather Icon">
-      <h1 class="temp"></h1>
-      <h2 class="city"></h2>
-      <div class="details">
-        <div class="col">
-          <img src="images/humidity.png" alt="Humidity">
-          <div>
-            <p class="humidity"></p>
-            <p>Humidity</p>
+<div class="info flow-up">
+  <header>
+    <body class="loading">
+    <main>
+      <section class="location">
+        <div class="city flow-up">Makerlab, HCMC</div>
+        <div class="date flow-up"></div>
+      </section>
+      <div class="current">
+        <div class="search">
+          <input type="text" placeholder="Enter city name" spellcheck="false">
+        </div>
+    
+        <div class="error">
+          <p>Invalid city name</p>
+        </div>
+    
+        <div class="weather">
+          <img src="images/rain.png" class="weather-icon" alt="Weather Icon">
+          <h1 class="temp"></h1>
+          <h2 class="city"></h2>
+          <div class="details">
+            <div class="col">
+              <img src="images/humidity.png" alt="Humidity">
+              <div>
+                <p class="humidity"></p>
+                <p>Humidity</p>
+              </div>
+            </div>
+            <div class="col">
+              <img src="images/wind.png" alt="Wind">
+              <div>
+                <p class="wind"></p>
+                <p>Wind Speed</p>
+              </div>
+              </div>
+              </div>
+            </div>
+        <div class="weather-container flow-up">
+          <span class="weather-label">Weather:</span>
+          <span class="weather-content"></span>
+          <span class="weather-description"></span>
+          <div class="temp-range">
+            <span class="temp-format"></span>
           </div>
         </div>
-        <div class="col">
-          <img src="images/wind.png" alt="Wind">
-          <div>
-            <p class="wind"></p>
-            <p>Wind Speed</p>
+        <section class="air-quality flow-down">
+          <div class="aqi-label"></div>
+          <div class="aqi-value"></div>
+          <div class="pollutants flow-up">
+            <div class="pollutant flow-up">
+              <span class="pollutant-label">CO:</span>
+              <span class="pollutant-value co"></span>
+            </div>
+            <div class="pollutant flow-up">
+              <span class="pollutant-label">NO:</span>
+              <span class="pollutant-value no"></span>
+            </div>
+            <div class="pollutant flow-up">
+              <span class="pollutant-label">NO2:</span>
+              <span class="pollutant-value no2"></span>
+            </div>
+            <div class="pollutant flow-up">
+              <span class="pollutant-label">O3:</span>
+              <span class="pollutant-value o3"></span>
+            </div>
+            <div class="pollutant flow-up">
+              <span class="pollutant-label">SO2:</span>
+              <span class="pollutant-value so2"></span>
+            </div>
+            <div class="pollutant flow-up">
+              <span class="pollutant-label">PM2.5:</span>
+              <span class="pollutant-value pm2_5"></span>
+            </div>
+            <div class="pollutant flow-up">
+              <span class="pollutant-label">PM10:</span>
+              <span class="pollutant-value pm10"></span>
+            </div>
+            <div class="pollutant flow-up">
+              <span class="pollutant-label">NH3:</span>
+              <span class="pollutant-value nh3"></span>
+            </div>
+            </div>
+            
           </div>
+          <a href="https://raw.githubusercontent.com/dngvmnh/Automatic_Weather_Station/main/assets/AQI.png" target="_blank" class="aqi-button flow-up ">Refer to AQI color-coded system</a>
+        </section>
         </div>
       </div>
     </div>
   </div>
-  
-
   <div class="down-arrow">
     <a href="index.html">
       <i class="fas fa-chevron-up"></i>
@@ -123,5 +179,6 @@
       checkWeather("Ho Chi Minh City");
     });
   </script>
+  <script src="script.js"></script>
 </body>
 </html>

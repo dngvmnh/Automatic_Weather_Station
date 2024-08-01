@@ -22,73 +22,36 @@
 </head>
 <body>
 
-  <div class="app-wrap">
     <div class="info flow-up">
     <header>
       <body class="loading">
       <main>
+        <div class="current">
         <section class="location">
           <div class="city flow-up">Makerlab, HCMC</div>
           <div class="date flow-up"></div>
-        </section>
-        
-        <div class="current">
-          <div class="temp flow-up"></div>
-          <div class="weather-container flow-up">
-            <span class="weather-label">Weather:</span>
-            <span class="weather-content"></span>
-            <span class="weather-description"></span>
-            <div class="temp-range">
-              <span class="temp-format"></span>
-            </div>
-          </div>
-          <section class="air-quality flow-up">
-            <div class="aqi-label"></div>
-            <div class="aqi-value"></div>
-            <div class="pollutants flow-up">
-              <div class="pollutant flow-up">
-                <span class="pollutant-label">CO:</span>
-                <span class="pollutant-value co"></span>
-              </div>
-              <div class="pollutant flow-up">
-                <span class="pollutant-label">NO:</span>
-                <span class="pollutant-value no"></span>
-              </div>
-              <div class="pollutant flow-up">
-                <span class="pollutant-label">NO2:</span>
-                <span class="pollutant-value no2"></span>
-              </div>
-              <div class="pollutant flow-up">
-                <span class="pollutant-label">O3:</span>
-                <span class="pollutant-value o3"></span>
-              </div>
-              <div class="pollutant flow-up">
-                <span class="pollutant-label">SO2:</span>
-                <span class="pollutant-value so2"></span>
-              </div>
-              <div class="pollutant flow-up">
-                <span class="pollutant-label">PM2.5:</span>
-                <span class="pollutant-value pm2_5"></span>
-              </div>
-              <div class="pollutant flow-up">
-                <span class="pollutant-label">PM10:</span>
-                <span class="pollutant-value pm10"></span>
-              </div>
-              <div class="pollutant flow-up">
-                <span class="pollutant-label">NH3:</span>
-                <span class="pollutant-value nh3"></span>
-              </div>
-              </div>
-              
-            </div>
-            <a href="https://raw.githubusercontent.com/dngvmnh/Automatic_Weather_Station/main/assets/AQI.png" target="_blank" class="aqi-button flow-up ">Refer to AQI color-coded system</a>
-            <a href="https://raw.githubusercontent.com/dngvmnh/Automatic_Weather_Station/main/assets/UVI.jpg" target="_blank" class="aqi-button flow-up ">Refer to AQI Ultraviolet Index Levels</a>
+          <div id="temperature"></div>    
+          <script>
+            const channelID = '2604448';
+            const fieldID = '1';
+            const apiKey = 'UQNBZGODZAF499TP';
+            const url = `https://api.thingspeak.com/channels/${channelID}/fields/${fieldID}/last.json?api_key=${apiKey}`;
+            async function getTemperature() {
+                try {
+                  const response = await fetch(url);
+                const data = await response.json();
+                const temperatureElement = document.getElementById('temperature');
+                temperatureElement.innerText = `${data.field1} °C`;
+                temperatureElement.className = 'temp';
+            } catch (error) {
+                    console.error('Error fetching temperature data:', error);
+                }
+            }
+            window.onload = getTemperature;
+        </script>
+        </div><a href="https://raw.githubusercontent.com/dngvmnh/Automatic_Weather_Station/main/assets/UVI.jpg" target="_blank" class="aqi-button flow-up ">Refer to Ultraviolet Index Levels</a></div>
 
-          </section>
-        </div>
-      </main>
-    </header>
-    
+        </section></body>
     <div class="big-container"> 
       <div class="container">
         <div class="container-title flow-up">Temperature</div>
