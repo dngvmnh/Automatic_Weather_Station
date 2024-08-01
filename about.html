@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="icon" href="assets/Icon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/Icon.png">
+  <meta name="google-site-verification" content="LEG3Rx9PyPZzUVvMXUo1elkyCv_hz1olrUGshqy0T_4" />
   <style>
     .hidden {
       display: none;
@@ -19,166 +20,159 @@
 
   </style>
 </head>
-<div class="info flow-up">
-  <header>
-    <body class="loading">
-    <main>
-      <section class="location">
-        <div class="city flow-up">Makerlab, HCMC</div>
-        <div class="date flow-up"></div>
-      </section>
-      <div class="current">
-        <div class="search">
-          <input type="text" placeholder="Enter city name" spellcheck="false">
-        </div>
-    
-        <div class="error">
-          <p>Invalid city name</p>
-        </div>
-    
-        <div class="weather">
-          <img src="images/rain.png" class="weather-icon" alt="Weather Icon">
-          <h1 class="temp"></h1>
-          <h2 class="city"></h2>
+<body>
+
+    <div class="info flow-up">
+    <header>
+      <body class="loading">
+      <main>
+        <div class="current">
+        <section class="location">
+          <div class="city flow-up">Makerlab, HCMC</div>
+          <div class="date flow-up"></div>
+          <div id="temperature"></div> 
           <div class="details">
             <div class="col">
-              <img src="images/humidity.png" alt="Humidity">
+              <img src="images/humidity.png">
               <div>
-                <p class="humidity"></p>
-                <p>Humidity</p>
+                <p id="humidity" class="humidity"></p>
               </div>
-            </div>
-            <div class="col">
-              <img src="images/wind.png" alt="Wind">
-              <div>
-                <p class="wind"></p>
-                <p>Wind Speed</p>
-              </div>
-              </div>
-              </div>
-            </div>
-        <div class="weather-container flow-up">
-          <span class="weather-label">Weather:</span>
-          <span class="weather-content"></span>
-          <span class="weather-description"></span>
-          <div class="temp-range">
-            <span class="temp-format"></span>
-          </div>
-        </div>
-        <section class="air-quality flow-down">
-          <div class="aqi-label"></div>
-          <div class="aqi-value"></div>
-          <div class="pollutants flow-up">
-            <div class="pollutant flow-up">
-              <span class="pollutant-label">CO:</span>
-              <span class="pollutant-value co"></span>
-            </div>
-            <div class="pollutant flow-up">
-              <span class="pollutant-label">NO:</span>
-              <span class="pollutant-value no"></span>
-            </div>
-            <div class="pollutant flow-up">
-              <span class="pollutant-label">NO2:</span>
-              <span class="pollutant-value no2"></span>
-            </div>
-            <div class="pollutant flow-up">
-              <span class="pollutant-label">O3:</span>
-              <span class="pollutant-value o3"></span>
-            </div>
-            <div class="pollutant flow-up">
-              <span class="pollutant-label">SO2:</span>
-              <span class="pollutant-value so2"></span>
-            </div>
-            <div class="pollutant flow-up">
-              <span class="pollutant-label">PM2.5:</span>
-              <span class="pollutant-value pm2_5"></span>
-            </div>
-            <div class="pollutant flow-up">
-              <span class="pollutant-label">PM10:</span>
-              <span class="pollutant-value pm10"></span>
-            </div>
-            <div class="pollutant flow-up">
-              <span class="pollutant-label">NH3:</span>
-              <span class="pollutant-value nh3"></span>
-            </div>
             </div>
             
-          </div>
-          <a href="https://raw.githubusercontent.com/dngvmnh/Automatic_Weather_Station/main/assets/AQI.png" target="_blank" class="aqi-button flow-up ">Refer to AQI color-coded system</a>
-        </section>
+            <div class="col">
+              <img src="images/UV.png">
+              <div>
+                <p id="UV" class="humidity"></p>
+              </div>
+              </div>
+              
+              </div>
+            </div><a href="https://raw.githubusercontent.com/dngvmnh/Automatic_Weather_Station/main/assets/UVI.png" target="_blank" class="aqi-button flow-up">Refer to Ultraviolet Index Levels</a></div>
+
+            </div>   
+          <script>
+            const channelID = '2604448';
+            const apiKey = 'UQNBZGODZAF499TP';
+            
+            async function getData1() {
+                const url = `https://api.thingspeak.com/channels/${channelID}/fields/1/last.json?api_key=${apiKey}`;
+                try {
+                  const response = await fetch(url);
+                  const data = await response.json();
+                  return data.field1;
+                } catch (error) {
+                  console.error(`Error fetching data from field 1:`, error);
+                }
+            }
+            async function getData2() {
+                const url = `https://api.thingspeak.com/channels/${channelID}/fields/2/last.json?api_key=${apiKey}`;
+                try {
+                  const response = await fetch(url);
+                  const data = await response.json();
+                  return data.field2;
+                } catch (error) {
+                  console.error(`Error fetching data from field 2:`, error);
+                }
+            }
+            async function getData3() {
+                const url = `https://api.thingspeak.com/channels/${channelID}/fields/3/last.json?api_key=${apiKey}`;
+                try {
+                  const response = await fetch(url);
+                  const data = await response.json();
+                  return data.field3;
+                } catch (error) {
+                  console.error(`Error fetching data from field 3:`, error);
+                }
+            }
+
+            async function updateWeatherData() {
+              const temperatureElement = document.getElementById('temperature');
+              const humidityElement = document.getElementById('humidity');
+              const UVElement = document.getElementById('UV');
+              
+              try {
+                const temperature = await getData1();
+                const humidity = await getData2();
+                const UV = await getData3();
+                
+                temperatureElement.innerText = (temperature !== undefined && !isNaN(temperature)) ? `${temperature}°C` : 'Data not available';
+                temperatureElement.className = 'temp';
+
+                humidityElement.innerText = (humidity !== undefined && !isNaN(humidity)) ? `${parseFloat(humidity).toFixed(2)}%` : 'Data not available';
+                humidityElement.className = 'humidity';
+
+                UVElement.innerText = (UV !== undefined && !isNaN(UV)) ? `${UV}` : 'Data not available';
+                UVElement.className = 'UV';
+              } catch (error) {
+                console.error('Error updating weather data:', error);
+              }
+            }
+
+            window.onload = updateWeatherData;
+        </script>
+
+        </section></body>
+    <div class="big-container"> 
+      <div class="container">
+        <div class="container-title flow-up">Temperature</div>
+        <div class="iframe-container">
+          <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
         </div>
+      </div>
+
+      <div class="container">
+        <div class="container-title flow-up">Humidity</div>
+        <div class="iframe-container">
+          <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="container-title flow-up">Ultraviolet Intensity</div>
+        <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+      </div>
+
+      <div class="container">
+        <div class="container-title flow-up">Luminous Intensity</div>
+        <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+      </div>
+
+      <div class="container">
+        <div class="container-title flow-up">Atmospheric Pressure</div>
+        <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+      </div>
+
+      <div class="container">
+        <div class="container-title flow-up">Elevation</div>
+        <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2604448/charts/6?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+      </div>
+    </div>
+    
+    <div class="down-arrow">
+      <a href="index.html">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </div>
+
+    <div class="footer">
+      <h3>© Automatic Weather Station, built by Vu Minh Dang and Tran Thuc Bao, open-sourced by Makerlab.</h3>
+      <div class="social-media">
+        <a href="https://github.com/dngvmnh/automatic_weather_station"><img src="assets/AWS.png" class="icon_1" /></a>
+        <a href="https://github.com/makerlabvn"><i class="sm fa-brands fa-github"></i></a>
+        <a href="https://www.facebook.com/makerlabvn/"><i class="sm fa-brands fa-facebook"></i></a>
+        <a href="https://www.makerlab.vn/"><img src="assets/maker_lab_vn.png" class="icon" /></a>
       </div>
     </div>
   </div>
-  <div class="down-arrow">
-    <a href="index.html">
-      <i class="fas fa-chevron-up"></i>
-    </a>
-  </div>
 
-  <div class="footer">
-    <h3>© Automatic Weather Station, built by Vu Minh Dang and Tran Thuc Bao, open-sourced by Makerlab.</h3>
-    <div class="social-media">
-      <a href="https://github.com/dngvmnh/automatic_weather_station"><img src="assets/AWS.png" class="icon_1" alt="AWS"></a>
-      <a href="https://github.com/makerlabvn"><i class="sm fa-brands fa-github"></i></a>
-      <a href="https://www.facebook.com/makerlabvn/"><i class="sm fa-brands fa-facebook"></i></a>
-      <a href="https://www.makerlab.vn/"><img src="assets/maker_lab_vn.png" class="icon" alt="Maker Lab VN"></a>
-    </div>
-  </div>
-</div>
-
+  <script src="script.js"></script>
   <script>
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.body.classList.remove('loading');
       }, 500); 
     });
-
-    const apikey = "98d48501649a41790e957711ea3b6d24";
-    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-    const searchbox = document.querySelector(".search input");
-    const weatherIcon = document.querySelector(".weather-icon");
-
-    async function checkWeather(city) {
-      const response = await fetch(apiUrl + city + `&appid=${apikey}`);
-      
-      if (response.status == 404) {
-        document.querySelector(".error").style.display = "block";
-        document.querySelector(".weather").style.display = "none";
-      } else {
-        const data = await response.json();
-        document.querySelector(".city").innerHTML = data.name;
-        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
-        document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-        document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
-        
-        if (data.weather[0].main == "Clouds") {
-          weatherIcon.src = "images/clouds.png";
-        } else if (data.weather[0].main == "Clear") {
-          weatherIcon.src = "images/clear.png";
-        } else if (data.weather[0].main == "Rain") {
-          weatherIcon.src = "images/rain.png";
-        } else if (data.weather[0].main == "Drizzle") {
-          weatherIcon.src = "images/drizzle.png";
-        } else if (data.weather[0].main == "Mist") {
-          weatherIcon.src = "images/mist.png";
-        }
-
-        document.querySelector(".weather").style.display = "block";
-        document.querySelector(".error").style.display = "none";
-      }
-    }
-
-    searchbox.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        checkWeather(searchbox.value);
-      }
-    });
-
-    document.addEventListener("DOMContentLoaded", () => {
-      checkWeather("Ho Chi Minh City");
-    });
   </script>
-  <script src="script.js"></script>
+</body>
 </body>
 </html>
