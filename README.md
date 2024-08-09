@@ -16,13 +16,13 @@ The Automatic Weather Station leverages the ESP32 microcontroller and the DFRobo
 
 ### 2. Background
 
-#### 1. Station Features
+#### Station Features
 
 - **Real-Time Data Visualization:** Weather data such as temperature, humidity, ultraviolet intensity, luminous intensity, atmospheric pressure, and elevation are graphically represented using ThingSpeak's HTML code. Additionally, air quality metrics, including CO, NO2, O3, and PM2.5 pollutant concentrations, are retrieved from OpenWeatherMap APIs and displayed.
 - **Wireless Data Transmission:** The ESP32’s built-in Wi-Fi transmits collected data to the ThingSpeak platform using the ThingSpeak API and the provided Wi-Fi credentials. This data can be seamlessly displayed on a website built using templates from Google Sites or GitHub Pages.
 - **Data Logging and Analysis:** The station logs collected data for historical analysis and trend monitoring. It also includes a feature for searching weather data in other cities. The station is designed for continuous operation with minimal power consumption.
 
-#### 2. Setup
+#### Setup
 
 - Install the Arduino IDE or Thonny IDE.
 - Install the required libraries for the ESP32 and DFRobot Sensor.
