@@ -4,7 +4,6 @@ import ujson as json
 import time
 import network
 
-# Define the I2C address and communication modes
 I2C_MODE = 0x01
 UART_MODE = 0x02
 DEV_ADDRESS = 0x22
@@ -14,7 +13,6 @@ KPA = 0x02
 TEMP_C = 0x03
 TEMP_F = 0x04
 
-#Thông tin tài khoản Thingspeak 
 HTTP_HEADERS = {'Content-Type': 'application/json'} 
 THINGSPEAK_WRITE_API_KEY = 'CECWK4EDQD9CRCJW' 
 
@@ -60,7 +58,6 @@ class DFRobot_Environmental_Sensor():
             if self._uart_i2c == I2C_MODE:
                 rslt = self.i2cbus.readfrom_mem(self._addr, reg_addr, length)
             elif self._uart_i2c == UART_MODE:
-                # Implement UART read here if needed
                 rslt = [-1] * length
         except Exception as e:
             print("Error reading register:", e)
@@ -145,10 +142,8 @@ class DFRobot_Environmental_Sensor_UART(DFRobot_Environmental_Sensor):
     def __init__(self, baud, addr):
         super().__init__(None, baud)
         self._addr = addr
-        # Initialize UART here if needed
 
     def _read_reg(self, reg_addr, length):
-        # Implement UART read here if needed
         return [-1] * length
 
 
@@ -182,7 +177,7 @@ def setup():
         print("-----------------------")
         
         sensor_reading = {'field1':temperature_c, 'field2':humidity, 'field3':ultraviolet_intensity, 'field4':luminous_intensity, 'field5':atmospheric_pressure}
-        print(sensor_reading) #in 2 giá trị gửi
+        print(sensor_reading)
         request = urequests.post( 'http://api.thingspeak.com/update?api_key=' + THINGSPEAK_WRITE_API_KEY,json = sensor_reading, headers = HTTP_HEADERS )  
         request.close()
         time.sleep(1)
