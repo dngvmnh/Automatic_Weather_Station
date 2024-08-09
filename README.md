@@ -23,7 +23,7 @@ The Automatic Weather Station leverages the ESP32 microcontroller and the DFRobo
 - Upload the provided code to the ESP32.
 - Connect the DFRobot Environmental Sensor to the ESP32 following the wiring diagram provided in the documentation.
 - Power the ESP32 using a micro USB cable or a battery, and connect it to an adapter once coding is complete.
-- The weather station will automatically begin collecting and transmitting data, which can be accessed through the web interface via your browser.
+- The weather station will automatically begin collecting and transmitting data, which can be accessed through the web interface via browser.
 
 ## Implementation
 
