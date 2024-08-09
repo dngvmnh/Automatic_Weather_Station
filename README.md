@@ -1,9 +1,8 @@
 ## DEMO
 
-![User Interface Image 1](https://prod-files-secure.s3.us-west-2.amazonaws.com/20ca33b6-85bf-42aa-b292-2895dee8f79f/f1282698-b611-48d7-9570-a57becd718a5/Untitled.png)
+![User Interface Image 1](https://github.com/dngvmnh/Automatic_Weather_Station/raw/main/assets/demo_1.png)
 
-![User Interface Image 2](https://prod-files-secure.s3.us-west-2.amazonaws.com/20ca33b6-85bf-42aa-b292-2895dee8f79f/23781abb-79f9-42d2-ad41-d9e21f2732f1/Untitled.png)
-
+![User Interface Image 2](https://github.com/dngvmnh/Automatic_Weather_Station/blob/main/assets/demo_2.png)
 ## Project Description
 
 ### 1. Overview
