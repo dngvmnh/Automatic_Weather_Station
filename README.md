@@ -62,3 +62,4 @@ The Automatic Weather Station leverages the ESP32 microcontroller and the DFRobo
 - **Enhanced Data Security: a**s the station collects and transmits sensitive environmental data, implementing robust security measures, such as encryption and secure APIs, will be crucial in protecting data integrity and user privacy.
 
 ## Documentation
+- Refer to Automatic Weather Station's [documentation](https://github.com/dngvmnh/Automatic_Weather_Station/blob/main/DOCUMENTATION.md).
