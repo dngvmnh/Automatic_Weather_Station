@@ -16,7 +16,6 @@ THINGSPEAK_WRITE_API_KEY = '8RLXDPKT7Z4GSF9W'
 ssid='MakerLab.vn' #tên mạng wifi
 password='' #password wifi
 
-# Cài đặt kết nối wifi
 sta_if=network.WLAN(network.STA_IF)
 sta_if.active(True)
 
@@ -38,7 +37,5 @@ while True:
     print(sensor_reading) #in 2 giá trị gửi
     request = urequests.post( 'http://api.thingspeak.com/update?api_key=' + THINGSPEAK_WRITE_API_KEY,json = sensor_reading, headers = HTTP_HEADERS )  
     request.close()
-    
-		#đọc giá trị từ field5 (nút nhấn) và bật-tắt đèn tương ứng
     
     time.sleep(5)
