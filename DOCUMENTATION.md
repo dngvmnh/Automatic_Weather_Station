@@ -409,23 +409,21 @@ Before integrating the API, ensure your HTML file contains the necessary element
 
 To access the OpenWeatherMap API, you need an API key. Replace the placeholder in the script with your actual key. Also, specify the city or coordinates for which you want to fetch the weather and air quality data.
 
-```
-javascript
-Copy code
+```javascript
 const apiKey = 'YOUR_API_KEY';
 const city = 'Ho Chi Minh City';
 ```
 Alternatively, if you want to use geographical coordinates:
 
-javascript
-Copy code
+```javascript
 const lat = 10.8231;  // Latitude for Ho Chi Minh City
 const lon = 106.6297; // Longitude for Ho Chi Minh City
-Weather Data Fetching
+```
+
+## Weather Data Fetching
 The script uses the weather endpoint to retrieve current weather data such as temperature, weather condition, and description. It then updates the respective HTML elements with this data.
 
-javascript
-Copy code
+```javascript
 function updateWeather() {
     fetch(weatherApiUrl)
         .then(response => response.json())
@@ -447,11 +445,11 @@ function updateWeather() {
             weatherContentElement.innerHTML = 'Weather not available';
         });
 }
-Air Quality Data Fetching
+```
+## Air Quality Data Fetching
 The air pollution endpoint provides data on the Air Quality Index (AQI) and concentrations of various pollutants. The script processes this information and updates the respective pollutant elements.
 
-javascript
-Copy code
+```javascript
 function updateAirQuality() {
     fetch(airPollutionApiUrl)
         .then(response => response.json())
@@ -479,13 +477,14 @@ function updateAirQuality() {
             });
         });
 }
-    Automatically Updating Data
+```
+## Automatically Updating Data
 The data updates every minute using the setInterval function. This ensures that your web application always displays the latest weather and air quality information.
 
-javascript
-Copy code
+```javascript
 setInterval(updateDate, 60000);
 setInterval(updateWeather, 60000);
 setInterval(updateAirQuality, 60000);
-    Error Handling
+```
+## Error Handling
 The script includes error handling to display fallback messages if the API requests fail. This ensures that the user interface remains informative even when the API is inaccessible.
