@@ -403,6 +403,7 @@ Before integrating the API, ensure your HTML file contains the necessary element
         <div class="nh3"></div>
     </div>
 </div>
+```
 
 ## Integrating the OpenWeatherMap API
 
