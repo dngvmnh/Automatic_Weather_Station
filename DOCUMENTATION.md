@@ -12,10 +12,6 @@
 - Thonny Desktop
 - Thingspeak account
 
-# Step by step
-
----
-
 # Dowload app
 
 - Download Thonny
@@ -33,12 +29,12 @@
     - Connect your ESP32 to your laptop through USB or Type C wire
     - Open Thonny and choose run and choose “Configure interpreter”
     
-    ![Config interpreter](https://github.com/henrytran412/Automatic_Weather_Station_Guide/raw/main/Pictures/Config_interpreter.png))
+    ![Config interpreter](https://github.com/dngvmnh/Automatic_Weather_Station_Guide/raw/main/assets/Config_interpreter.png)
     
     - Choose microPython and port that your laptop connect to ESP32
     - Click “Install or update Micropython” to download firmware to ESP32 (so that ESP32 can run Thonny code (Python))
     
-    ![Install_firmware_esp32](https://github.com/henrytran412/Automatic_Weather_Station_Guide/raw/main/Pictures/Install_firmware_esp32.png))
+    ![Install_firmware_esp32](https://github.com/dngvmnh/Automatic_Weather_Station_Guide/raw/main/assets/Install_firmware_esp32.png)
     
 - Connect DF Robot Environmental sensor to I2C port in shell of ESP32
 
@@ -47,7 +43,7 @@
 - Install Thonny IDE
 - Create Thingspeak account and create channel
     
-    ![Create channel](https://github.com/henrytran412/Automatic_Weather_Station_Guide/raw/main/Pictures/Create_channel.png))
+    ![Create channel](https://github.com/dngvmnh/Automatic_Weather_Station_Guide/raw/main/assets/Create_channel.png)
     
 
 # 3. Thingspeak setup
@@ -55,20 +51,19 @@
 - Create a channel
 - Name a channel and choose field for your project (max: 8 fields). Save channel
     
-    ![Create channel](https://github.com/henrytran412/Automatic_Weather_Station_Guide/raw/main/Pictures/Create_channel.png))
+    ![Create channel](https://github.com/dngvmnh/Automatic_Weather_Station_Guide/raw/main/assets/Create_channel.png)
     
 - Remember the channel id. Note: The id is different in every channel so check the channel id carefully
     
-    ![Create channel and choose fields](https://github.com/henrytran412/Automatic_Weather_Station_Guide/raw/main/Pictures/Create_channels_choose_fields.png))
+    ![Create channel and choose fields](https://github.com/dngvmnh/Automatic_Weather_Station_Guide/raw/main/assets/Create_channels_choose_fields.png)
     
 - Sharing the project to public view so everyone can see it.
     
-    ![Share channel](https://github.com/henrytran412/Automatic_Weather_Station_Guide/raw/main/Pictures/Share_channels.png))
+    ![Share channel](https://github.com/dngvmnh/Automatic_Weather_Station_Guide/raw/main/assets/Share_channels.png)
     
 - Check and remember the API KEYS for read and write
     
-     ![API Keys](https://github.com/henrytran412/Automatic_Weather_Station_Guide/raw/main/Pictures/API_keys.png))
-    
+     ![API Keys](https://github.com/dngvmnh/Automatic_Weather_Station_Guide/raw/main/assets/API_keys.png)
 
 # 4. Python code
 
@@ -91,17 +86,15 @@
     TEMP_C = 0x03
     TEMP_F = 0x04
     
-    #Thông tin tài khoản Thingspeak 
     HTTP_HEADERS = {'Content-Type': 'application/json'} 
     THINGSPEAK_WRITE_API_KEY = 'CECWK4EDQD9CRCJW'
     THINGSPEAK_CHANNEL_ID= '2604448'
     THINGSPEAK_READ_API_KEY = 'UQNBZGODZAF499TP'
     USER_API_KEY = 'MQHY981MRKM29ZDE'
     
-    ssid='MakerLab.vn' #tên mạng wifi
-    password='' #password wifi
-    
-    # Cài đặt kết nối wifi
+    ssid='MakerLab.vn' 
+    password='' 
+
     sta_if=network.WLAN(network.STA_IF)
     sta_if.active(True)
     
@@ -111,7 +104,6 @@
         while not sta_if.isconnected():
          pass
     print('network config:', sta_if.ifconfig())
-    #xoa du lieu cu
     '''url = f'https://api.thingspeak.com/channels/2604448/feeds.json?api_key=MQHY981MRKM29ZDE'
     response = urequests.delete(url, headers={'Content-Type': 'application/json', 'api_key': USER_API_KEY})
     
@@ -272,7 +264,7 @@
             print("-----------------------")
             
             sensor_reading = {'field1':temperature_c, 'field2':humidity, 'field3':ultraviolet_intensity, 'field4':luminous_intensity, 'field5':atmospheric_pressure, 'field6': elevation}
-            print(sensor_reading) #in 2 giá trị gửi
+            print(sensor_reading) 
             request = urequests.post( 'http://api.thingspeak.com/update?api_key=' + THINGSPEAK_WRITE_API_KEY,json = sensor_reading, headers = HTTP_HEADERS )  
             request.close()
             time.sleep(1)
