@@ -29,12 +29,12 @@
     - Connect your ESP32 to your laptop through USB or Type C wire
     - Open Thonny and choose run and choose “Configure interpreter”
     
-    ![Config interpreter](https://github.com/dngvmnh/Automatic_Weather_Station_Guide/raw/main/assets/Config_interpreter.png)
+    ![Config interpreter](https://github.com/dngvmnh/Automatic_Weather_Station/raw/main/assets/Config_interpreter.png)
     
     - Choose microPython and port that your laptop connect to ESP32
     - Click “Install or update Micropython” to download firmware to ESP32 (so that ESP32 can run Thonny code (Python))
     
-    ![Install_firmware_esp32](https://github.com/dngvmnh/Automatic_Weather_Station_Guide/raw/main/assets/Install_firmware_esp32.png)
+    ![Install_firmware_esp32](https://github.com/dngvmnh/Automatic_Weather_Station/raw/main/assets/Install_firmware_esp32.png)
     
 - Connect DF Robot Environmental sensor to I2C port in shell of ESP32
 
@@ -43,7 +43,7 @@
 - Install Thonny IDE
 - Create Thingspeak account and create channel
     
-    ![Create channel](https://github.com/dngvmnh/Automatic_Weather_Station_Guide/raw/main/assets/Create_channel.png)
+    ![Create channel](https://github.com/dngvmnh/Automatic_Weather_Station/raw/main/assets/Create_channel.png)
     
 
 # 3. Thingspeak setup
@@ -51,19 +51,19 @@
 - Create a channel
 - Name a channel and choose field for your project (max: 8 fields). Save channel
     
-    ![Create channel](https://github.com/dngvmnh/Automatic_Weather_Station_Guide/raw/main/assets/Create_channel.png)
+    ![Create channel](https://github.com/dngvmnh/Automatic_Weather_Station/raw/main/assets/Create_channel.png)
     
 - Remember the channel id. Note: The id is different in every channel so check the channel id carefully
     
-    ![Create channel and choose fields](https://github.com/dngvmnh/Automatic_Weather_Station_Guide/raw/main/assets/Create_channels_choose_fields.png)
+    ![Create channel and choose fields](https://github.com/dngvmnh/Automatic_Weather_Station/raw/main/assets/Create_channels_choose_fields.png)
     
 - Sharing the project to public view so everyone can see it.
     
-    ![Share channel](https://github.com/dngvmnh/Automatic_Weather_Station_Guide/raw/main/assets/Share_channels.png)
+    ![Share channel](https://github.com/dngvmnh/Automatic_Weather_Station/raw/main/assets/Share_channels.png)
     
 - Check and remember the API KEYS for read and write
     
-     ![API Keys](https://github.com/dngvmnh/Automatic_Weather_Station_Guide/raw/main/assets/API_keys.png)
+     ![API Keys](https://github.com/dngvmnh/Automatic_Weather_Station/raw/main/assets/API_keys.png)
 
 # 4. Python code
 
